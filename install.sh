@@ -12,10 +12,11 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 echo "[1/4] hooks 디렉토리 생성..."
 mkdir -p "$HOOKS_DIR"
 
-echo "[2/4] 스크립트 복사..."
-cp "$SCRIPT_DIR/hooks/save_prompt.py" "$HOOKS_DIR/"
-cp "$SCRIPT_DIR/hooks/viewer_server.py" "$HOOKS_DIR/"
-chmod +x "$HOOKS_DIR/save_prompt.py" "$HOOKS_DIR/viewer_server.py"
+echo "[2/4] 스크립트 심볼릭 링크 생성..."
+# 복사 대신 링크 - 프로젝트 폴더에서 수정하면 ~/.claude/hooks에 즉시 반영됨
+ln -sf "$SCRIPT_DIR/hooks/save_prompt.py" "$HOOKS_DIR/save_prompt.py"
+ln -sf "$SCRIPT_DIR/hooks/viewer_server.py" "$HOOKS_DIR/viewer_server.py"
+chmod +x "$SCRIPT_DIR/hooks/save_prompt.py" "$SCRIPT_DIR/hooks/viewer_server.py"
 
 echo "[3/4] LaunchAgent 등록..."
 # __HOME__ placeholder를 실제 $HOME 경로로 치환해서 복사
