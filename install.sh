@@ -17,7 +17,8 @@ cp "$SCRIPT_DIR/hooks/viewer_server.py" "$HOOKS_DIR/"
 chmod +x "$HOOKS_DIR/save_prompt.py" "$HOOKS_DIR/viewer_server.py"
 
 echo "[3/4] LaunchAgent 등록..."
-cp "$SCRIPT_DIR/launchagent/$PLIST" "$LAUNCH_AGENTS/"
+# __HOME__ placeholder를 실제 $HOME 경로로 치환해서 복사
+sed "s|__HOME__|$HOME|g" "$SCRIPT_DIR/launchagent/$PLIST" > "$LAUNCH_AGENTS/$PLIST"
 launchctl unload "$LAUNCH_AGENTS/$PLIST" 2>/dev/null || true
 launchctl load "$LAUNCH_AGENTS/$PLIST"
 

@@ -9,7 +9,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
-    <string>/Users/a0329/.claude/hooks/viewer_server.py</string>
+    <string>__HOME__/.claude/hooks/viewer_server.py</string>
   </array>
 
   <key>RunAtLoad</key>
@@ -19,12 +19,12 @@
   <true/>
 
   <key>StandardOutPath</key>
-  <string>/Users/a0329/.claude/prompt-history-server.log</string>
+  <string>__HOME__/.claude/prompt-history-server.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/a0329/.claude/prompt-history-server.log</string>
+  <string>__HOME__/.claude/prompt-history-server.log</string>
 
   <key>WorkingDirectory</key>
-  <string>/Users/a0329/.claude</string>
+  <string>__HOME__/.claude</string>
 </dict>
 </plist>
